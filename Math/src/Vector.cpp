@@ -1,80 +1,75 @@
 #include <math.h>
 #include "Vector.h"
 
-//////////////////////////////////////////////////////////////////////////
-//	Constructors
-//////////////////////////////////////////////////////////////////////////
-Math::Vector2D::Vector2D()
-	: x(0.0f), y(0.0f)
-{
-
-}
-
-Math::Vector2D::~Vector2D()
-{
-
-}
-
-Math::Vector2D::Vector2D(float newX, float newY)
-	: x(newX), y(newY)
-{
-
-}
-
-Math::Vector2D::Vector2D(const Vector2D& ref)
-	: x(ref.x), y(ref.y)
-{
-
-}
+using namespace Math;
 
 //////////////////////////////////////////////////////////////////////////
-//	Set And Get
+/// Vector2D
+Vector2D::Vector2D()
+	: u(0.0f), v(0.0f)
+{
+
+}
+
+Vector2D::~Vector2D()
+{
+
+}
+
+Vector2D::Vector2D(float x, float y)
+	: u(x), v(y)
+{
+
+}
+
+Vector2D::Vector2D(const Vector2D& other)
+	: u(other.u), v(other.v)
+{
+
+}
+
+Vector2D& Vector2D::operator=(const Vector2D& other)
+{
+	if (this == &other)		return *this;
+
+	this->u = other.u;
+	this->v = other.v;
+	return *this;
+}
 //////////////////////////////////////////////////////////////////////////
-void Math::Vector2D::set(float newX, float newY)
-{
-	this->x = newX;
-	this->y = newY;
-}
-
-void Math::Vector2D::setX(float newX)
-{
-	this->x = newX;
-}
-
-void Math::Vector2D::setY(float newY)
-{
-	this->y = newY;
-}
-
-float Math::Vector2D::getX() const
-{
-	return x;
-}
-
-float Math::Vector2D::getY() const
-{
-	return y;
-}
 
 //////////////////////////////////////////////////////////////////////////
-//	Normalization
-//////////////////////////////////////////////////////////////////////////
-void Math::Vector2D::normalize()
+// Vector3D
+
+Vector3D::Vector3D()
+	: x(0.0f), y(0.0f), z(0.0f)
 {
-	float rlength = length();
-	if (rlength != 0.0f)
-	{
-		x /= rlength;
-		y /= rlength;
-	}
+
 }
 
-Math::Vector2D Math::Vector2D::getNormalize() const
+Vector3D::Vector3D(float newX, float newY, float newZ)
+	: x(newX), y(newY), z(newZ)
 {
-	return Vector2D(x / length(), y / length());
+
 }
 
-float Math::Vector2D::length() const
+Vector3D::Vector3D(const Vector3D& other)
+	: x(other.x), y(other.y), z(other.z)
 {
-	return static_cast<float>(sqrtf(x * x + y * y));
+
+}
+
+Vector3D::~Vector3D()
+{
+
+}
+
+Vector3D& Vector3D::operator=(const Vector3D& other)
+{
+	if (this == &other)		return *this;
+
+	this->x = other.x;
+	this->y = other.y;
+	this->z = other.z;
+	return *this;
 }
