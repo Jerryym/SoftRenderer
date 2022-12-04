@@ -3,11 +3,11 @@
 //v2.0 使用模板类实现
 
 namespace Math {
-	//二维一般用于纹理贴图
+	//二维
 	class Vector2D
 	{
 	public:
-		float u, v;
+		float x, y;
 
 	public:
 		//Constructors
@@ -16,8 +16,15 @@ namespace Math {
 		Vector2D(const Vector2D& other);
 		~Vector2D();
 
+		//normalization
+		Vector2D normalization();
+
 		//operator
-		Vector2D& operator = (const Vector2D& other);
+		Vector2D operator = (const Vector2D& other);
+		Vector2D operator + (const Vector2D& other);
+		Vector2D operator - (const Vector2D& other);
+		Vector2D operator * (const float rhs);
+		Vector2D operator / (const float rhs);
 	};
 
 	//三维
@@ -33,7 +40,11 @@ namespace Math {
 		~Vector3D();
 
 		//operator
-		Vector3D& operator = (const Vector3D& other);
+		Vector3D operator = (const Vector3D& other);
+		Vector3D operator + (const Vector3D& other);
+		Vector3D operator - (const Vector3D& other);
+		Vector3D operator * (const float rhs);
+		Vector3D operator / (const float rhs);
 	};
 }
 
