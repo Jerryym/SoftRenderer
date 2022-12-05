@@ -16,8 +16,11 @@ namespace Math {
 		Vector2D(const Vector2D& other);
 		~Vector2D();
 
+		//length
+		float getLength() const;
+
 		//normalization
-		Vector2D normalization();
+		Vector2D normalized();
 
 		//operator
 		Vector2D operator = (const Vector2D& other);
@@ -25,6 +28,17 @@ namespace Math {
 		Vector2D operator - (const Vector2D& other);
 		Vector2D operator * (const float rhs);
 		Vector2D operator / (const float rhs);
+
+		bool operator==(const Vector2D& rhs);
+		bool operator!=(const Vector2D& rhs);
+
+		void operator+=(const Vector2D& rhs);
+		void operator-=(const Vector2D& rhs);
+		void operator*=(const float rhs);
+		void operator/=(const float rhs);
+
+		Vector2D operator-() const;
+		Vector2D operator+() const;
 	};
 
 	//ÈýÎ¬
@@ -39,12 +53,66 @@ namespace Math {
 		Vector3D(const Vector3D& other);
 		~Vector3D();
 
+		//length
+		float getLength() const;
+
+		//normalization
+		Vector3D normalized();
+
 		//operator
 		Vector3D operator = (const Vector3D& other);
 		Vector3D operator + (const Vector3D& other);
 		Vector3D operator - (const Vector3D& other);
 		Vector3D operator * (const float rhs);
 		Vector3D operator / (const float rhs);
+
+		bool operator==(const Vector3D& rhs);
+		bool operator!=(const Vector3D& rhs);
+							  
+		void operator+=(const Vector3D& rhs);
+		void operator-=(const Vector3D& rhs);
+		void operator*=(const float rhs);
+		void operator/=(const float rhs);
+
+		Vector3D operator-() const;
+		Vector3D operator+() const;
+	};
+
+	//ËÄÎ¬
+	class Vector4D
+	{
+	public:
+		float x, y, z, w;
+	public:
+		//Constructors
+		Vector4D();
+		Vector4D(float newX, float newY, float newZ, float newW);
+		Vector4D(const Vector4D& other);
+		~Vector4D();
+
+		//length
+		float getLength() const;
+
+		//normalization
+		Vector4D normalized();
+
+		//operator
+		Vector4D operator = (const Vector4D& other);
+		Vector4D operator + (const Vector4D& other);
+		Vector4D operator - (const Vector4D& other);
+		Vector4D operator * (const float rhs);
+		Vector4D operator / (const float rhs);
+
+		bool operator==(const Vector4D& rhs);
+		bool operator!=(const Vector4D& rhs);
+
+		void operator+=(const Vector4D& rhs);
+		void operator-=(const Vector4D& rhs);
+		void operator*=(const float rhs);
+		void operator/=(const float rhs);
+
+		Vector4D operator-() const;
+		Vector4D operator+() const;
 	};
 }
 
