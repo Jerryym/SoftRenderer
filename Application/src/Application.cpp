@@ -7,7 +7,7 @@ int main()
 	{
 		//Vector2D
 		Math::Vector2D vec2d(1.2f, 2.2f);
-		std::cout << vec2d.u << ", " << vec2d.v << std::endl;
+		std::cout << vec2d.x << ", " << vec2d.y << std::endl;
 
 		//Vector3D
 		Math::Vector3D vec3d(1.2f, 2.2f, 0.0);
