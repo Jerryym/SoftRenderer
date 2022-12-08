@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Marix.h" />
     <ClInclude Include="src\Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Marix.cpp" />
     <ClCompile Include="src\Vector.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
