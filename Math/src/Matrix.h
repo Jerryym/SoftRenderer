@@ -17,6 +17,9 @@ namespace Math {
 		Matrix4f(const Matrix4f& other);
 		~Matrix4f();
 
+		//set
+		void set(const float value, int x, int y);
+
 		//operator
 		Matrix4f operator+(const Matrix4f& other);
 		Matrix4f operator-(const Matrix4f& other);
@@ -24,10 +27,29 @@ namespace Math {
 		Matrix4f operator*(const float value);
 		Matrix4f operator/(const float value);
 
-		//Identity
-		Matrix4f Identity();
+		bool operator == (const Matrix4f& other);
+		bool operator != (const Matrix4f& other);
 
-		//Inverse
+		void operator += (const Matrix4f& other);
+		void operator -= (const Matrix4f& other);
+		void operator *= (const Matrix4f& other);
+		void operator *= (const float value);
+		void operator /= (const float value);
+
+		//Identity
+		static Matrix4f Identity();
+
+		//Inverse¡¢ Determinant¡¢Transopose
+		float determinant();
+		bool Inverse(Matrix4f& mat);
+		void Transopose();
+
+		//cofactor matrix
+		//Matrix4f cofactorMatrix();
+
+	protected:
+		static float determinant(Matrix4f& mat, int nSize = 4);
+		static Matrix4f subMatrix(const Matrix4f& mat, int nSize, int nIndex);
 	};
 }
 

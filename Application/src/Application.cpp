@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Vector.h"
+#include "Matrix.h"
 
 int main()
 {
@@ -12,6 +13,10 @@ int main()
 		//Vector3D
 		Math::Vector3D vec3d(1.2f, 2.2f, 0.0);
 		std::cout << vec3d.x << ", " << vec3d.y << ", "<< vec3d.z << std::endl;
+
+		//Matrix4f
+		Math::Matrix4f mat = Math::Matrix4f::Identity();
+		std::cout << "det(mat) = " << mat.determinant() << std::endl;
 	}
 
 	return 0;

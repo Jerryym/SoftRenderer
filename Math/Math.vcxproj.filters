@@ -18,7 +18,7 @@
     <ClInclude Include="src\Vector.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\Marix.h">
+    <ClInclude Include="src\Matrix.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -26,7 +26,7 @@
     <ClCompile Include="src\Vector.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\Marix.cpp">
+    <ClCompile Include="src\Matrix.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
