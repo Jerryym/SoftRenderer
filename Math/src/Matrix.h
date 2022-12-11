@@ -45,11 +45,13 @@ namespace Math {
 		void Transopose();
 
 		//cofactor matrix
-		//Matrix4f cofactorMatrix();
+		bool cofactorMatrix(Matrix4f &mat);
 
 	protected:
-		static float determinant(Matrix4f& mat, int nSize = 4);
+		static float determinant(const Matrix4f& mat, int nSize = 4);
+		static float determinantofCofactorMat(const Matrix4f& mat, int iRow, int iCol, int nSize = 4);
 		static Matrix4f subMatrix(const Matrix4f& mat, int nSize, int nIndex);
+		static Matrix4f subMatrix(const Matrix4f& mat, int nSize, int iRow, int iCol);
 	};
 }
 

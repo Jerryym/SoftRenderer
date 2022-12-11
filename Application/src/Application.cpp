@@ -15,8 +15,24 @@ int main()
 		std::cout << vec3d.x << ", " << vec3d.y << ", "<< vec3d.z << std::endl;
 
 		//Matrix4f
-		Math::Matrix4f mat = Math::Matrix4f::Identity();
-		std::cout << "det(mat) = " << mat.determinant() << std::endl;
+		Math::Matrix4f mat(5, 2, 0, 0,
+			2, 1, 0, 0,
+			0, 0, 8, 3,
+			0, 0, 5, 2);
+
+		std::cout << "det(mat): " << mat.determinant() << std::endl;
+
+		Math::Matrix4f InverseMat;
+		mat.Inverse(InverseMat);
+		std::cout << "InverseMat:" << std::endl;
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				std::cout << InverseMat.elements[i][j] << " ";
+			}
+			std::cout << std::endl;
+		}
 	}
 
 	return 0;

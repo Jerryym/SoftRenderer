@@ -1,4 +1,5 @@
 #include "Matrix.h"
+#include <iostream>
 
 using namespace Math;
 
@@ -239,15 +240,29 @@ Matrix4f Matrix4f::Identity()
 	return result;
 }
 
+/*************************************
+逆矩阵：
+	InverseMat = (1 / |Mat|) * cofactorMat
+*************************************/
 bool Matrix4f::Inverse(Matrix4f& mat)
 {
 	//行列式为0 矩阵不可逆
-	if (determinant() == 0.0f)
+	float det = determinant();
+	if (det == 0.0f)	return false;
+		
+	Matrix4f cofactorMat;
+	if (cofactorMatrix(cofactorMat) != true)
 	{
 		return false;
 	}
 
-	Matrix4f InverseMat;
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			mat.elements[i][j] = cofactorMat.elements[i][j] / det;
+		}
+	}
 
 	return true;
 }
@@ -273,14 +288,43 @@ void Matrix4f::Transopose()
 	}
 }
 
-float Matrix4f::determinant()
+bool Matrix4f::cofactorMatrix(Matrix4f& mat)
 {
-	float rdet = 0.0f;
-	rdet = determinant(*this, 4);
-	return rdet;
+	//行列式为0 矩阵不可逆
+	float det = determinant();
+	if (det == 0.0f)	return false;
+
+	int iRow = 0, iCol = 0;
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			det = determinantofCofactorMat(*this, i, j, 4);
+			if (det == 0.0f)
+			{
+				mat.elements[iRow++][iCol] = 0.0f;
+			}
+			else
+			{ 
+				mat.elements[iRow++][iCol] = det * ((i + j) % 2 ? -1 : 1);
+			}
+		}
+
+		iRow = 0;
+		iCol++;
+	}
+
+	return true;
 }
 
-float Matrix4f::determinant(Matrix4f& mat, int nSize)
+float Matrix4f::determinant()
+{
+	float det = 0.0f;
+	det = determinant(*this, 4);
+	return det;
+}
+
+float Matrix4f::determinant(const Matrix4f& mat, int nSize)
 {
 	if (nSize == 1)
 		return mat.elements[0][0];
@@ -297,6 +341,13 @@ float Matrix4f::determinant(Matrix4f& mat, int nSize)
 	return det;
 }
 
+float Matrix4f::determinantofCofactorMat(const Matrix4f& mat, int iRow, int iCol, int nSize)
+{
+	Matrix4f subMat = subMatrix(mat, nSize, iRow, iCol);
+	float det = determinant(subMat, nSize - 1);
+	return det;
+}
+
 Matrix4f Matrix4f::subMatrix(const Matrix4f& mat, int nSize, int nIndex)
 {
 	Matrix4f subMat;
@@ -307,6 +358,26 @@ Matrix4f Matrix4f::subMatrix(const Matrix4f& mat, int nSize, int nIndex)
 		{
 			subMat.elements[i][j] = mat.elements[i + 1][j + (j >= nIndex)];
 		}
+	}
+
+	return subMat;
+}
+
+Matrix4f Math::Matrix4f::subMatrix(const Matrix4f& mat, int nSize, int iRow, int iCol)
+{
+	Matrix4f subMat;
+
+	int nSubMatRow = 0, nSubMatCol = 0;
+	for (int i = 0; i < nSize; i++)
+	{
+		if (i == iRow)	continue;
+		for (int j = 0; j < nSize; j++)
+		{
+			if (j == iCol)	continue;
+			subMat.elements[nSubMatRow][nSubMatCol++] = mat.elements[i][j];
+		}
+		nSubMatRow++;
+		nSubMatCol = 0;
 	}
 
 	return subMat;
