@@ -1,4 +1,5 @@
 #pragma once
+#include "Vector.h"
 
 namespace Math {
 
@@ -46,6 +47,14 @@ namespace Math {
 
 		//cofactor matrix
 		bool cofactorMatrix(Matrix4f &mat);
+
+		//translation
+		void translation(const Vector3D& vec);
+
+		//rotation(参数表中的角度均为弧度制)
+		void rotationX(const double rAngle);
+		void rotationY(const double rAngle);
+		void rotationZ(const double rAngle);
 
 	protected:
 		static float determinant(const Matrix4f& mat, int nSize = 4);

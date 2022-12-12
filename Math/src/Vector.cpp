@@ -187,12 +187,12 @@ Vector3D Vector3D::normalized()
 	return Vector3D(x / rModule, y / rModule, z / rModule);
 }
 
-float Math::Vector3D::dot(const Vector3D& vec) const
+float Vector3D::dot(const Vector3D& vec) const
 {
 	return (x * vec.x + y * vec.y + z * vec.z);
 }
 
-Vector3D Math::Vector3D::product(const Vector3D& vec) const
+Vector3D Vector3D::product(const Vector3D& vec) const
 {
 	Vector3D res;
 	res.x = y * vec.z - z * vec.y;
@@ -350,7 +350,7 @@ Vector4D Vector4D::normalized()
 	return Vector4D(x / rModule, y / rModule, z / rModule, w / rModule);
 }
 
-float Math::Vector4D::dot(const Vector4D& vec) const
+float Vector4D::dot(const Vector4D& vec) const
 {
 	return (x * vec.x + y * vec.y + z * vec.z + w * vec.w);
 }

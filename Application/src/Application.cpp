@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Vector.h"
 #include "Matrix.h"
+#include "MathFunctions.h"
 
 int main()
 {
@@ -30,6 +31,50 @@ int main()
 			for (int j = 0; j < 4; j++)
 			{
 				std::cout << InverseMat.elements[i][j] << " ";
+			}
+			std::cout << std::endl;
+		}
+
+		mat.translation(vec3d);
+		std::cout << "Translation:" << std::endl;
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				std::cout << mat.elements[i][j] << " ";
+			}
+			std::cout << std::endl;
+		}
+
+		mat.rotationX(D_TO_R(60));
+		std::cout << "RotationX:" << std::endl;
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				std::cout << mat.elements[i][j] << " ";
+			}
+			std::cout << std::endl;
+		}
+
+		mat.rotationY(D_TO_R(60));
+		std::cout << "RotationY:" << std::endl;
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				std::cout << mat.elements[i][j] << " ";
+			}
+			std::cout << std::endl;
+		}
+
+		mat.rotationZ(D_TO_R(60));
+		std::cout << "RotationZ:" << std::endl;
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				std::cout << mat.elements[i][j] << " ";
 			}
 			std::cout << std::endl;
 		}

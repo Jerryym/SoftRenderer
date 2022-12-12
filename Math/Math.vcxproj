@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\MathFunctions.h" />
     <ClInclude Include="src\Matrix.h" />
     <ClInclude Include="src\Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\MathFunctions.cpp" />
     <ClCompile Include="src\Matrix.cpp" />
     <ClCompile Include="src\Vector.cpp" />
   </ItemGroup>
