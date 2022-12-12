@@ -1,6 +1,5 @@
 #include "Matrix.h"
-#include <iostream>
-
+#include <math.h>
 using namespace Math;
 
 Matrix4f::Matrix4f()
@@ -315,6 +314,41 @@ bool Matrix4f::cofactorMatrix(Matrix4f& mat)
 	}
 
 	return true;
+}
+
+void Matrix4f::translation(const Vector3D& vec)
+{
+	*this = Identity();
+	elements[0][3] = vec.x;
+	elements[1][3] = vec.y;
+	elements[2][3] = vec.z;
+}
+
+void Matrix4f::rotationX(const double rAngle)
+{
+	*this = Identity();
+	elements[1][1] = static_cast<float> (cos(rAngle));
+	elements[2][1] = static_cast<float> (sin(rAngle));
+	elements[1][2] = -elements[2][1];
+	elements[2][2] = elements[1][1];
+}
+
+void Matrix4f::rotationY(const double rAngle)
+{
+	*this = Identity();
+	elements[0][0] = static_cast<float> (cos(rAngle));
+	elements[0][2] = static_cast<float> (sin(rAngle));
+	elements[2][0] = -elements[0][2];
+	elements[2][2] = elements[0][0];
+}
+
+void Matrix4f::rotationZ(const double rAngle)
+{
+	*this = Identity();
+	elements[0][0] = static_cast<float> (cos(rAngle));
+	elements[1][0] = static_cast<float> (sin(rAngle));
+	elements[0][1] = -elements[1][0];
+	elements[1][1] = elements[0][0];
 }
 
 float Matrix4f::determinant()
