@@ -22,6 +22,9 @@ namespace Math {
 		//normalization
 		Vector2D normalized();
 
+		//dot¡¢product
+		float dot(const Vector2D& vec) const;
+
 		//operator
 		Vector2D operator = (const Vector2D& other);
 		Vector2D operator + (const Vector2D& other);
@@ -59,6 +62,10 @@ namespace Math {
 		//normalization
 		Vector3D normalized();
 
+		//dot¡¢product
+		float dot(const Vector3D& vec) const;
+		Vector3D product(const Vector3D& vec) const;
+
 		//operator
 		Vector3D operator = (const Vector3D& other);
 		Vector3D operator + (const Vector3D& other);
@@ -95,6 +102,9 @@ namespace Math {
 
 		//normalization
 		Vector4D normalized();
+
+		//dot¡¢product
+		float dot(const Vector4D& vec) const;
 
 		//operator
 		Vector4D operator = (const Vector4D& other);

@@ -43,6 +43,11 @@ Vector2D Vector2D::normalized()
 	return Vector2D(x / rModule, y / rModule);
 }
 
+float Vector2D::dot(const Vector2D& vec) const
+{
+	return (x * vec.x + y * vec.y);
+}
+
 Vector2D Vector2D::operator=(const Vector2D& other)
 {
 	if (this == &other)		return *this;
@@ -180,6 +185,21 @@ Vector3D Vector3D::normalized()
 		return Vector3D(0.0f, 0.0f, 0.0f);
 
 	return Vector3D(x / rModule, y / rModule, z / rModule);
+}
+
+float Math::Vector3D::dot(const Vector3D& vec) const
+{
+	return (x * vec.x + y * vec.y + z * vec.z);
+}
+
+Vector3D Math::Vector3D::product(const Vector3D& vec) const
+{
+	Vector3D res;
+	res.x = y * vec.z - z * vec.y;
+	res.y = z * vec.x - x * vec.z;
+	res.z = x * vec.y - y * vec.x;
+
+	return res;
 }
 
 Vector3D Vector3D::operator=(const Vector3D& other)
@@ -328,6 +348,11 @@ Vector4D Vector4D::normalized()
 		return Vector4D(0.0f, 0.0f, 0.0f, 0.0f);
 
 	return Vector4D(x / rModule, y / rModule, z / rModule, w / rModule);
+}
+
+float Math::Vector4D::dot(const Vector4D& vec) const
+{
+	return (x * vec.x + y * vec.y + z * vec.z + w * vec.w);
 }
 
 Vector4D Vector4D::operator=(const Vector4D& other)
