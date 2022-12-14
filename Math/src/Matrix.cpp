@@ -351,6 +351,14 @@ void Matrix4f::rotationZ(const double rAngle)
 	elements[1][1] = elements[0][0];
 }
 
+void Matrix4f::scale(const Vector3D& vec)
+{
+	*this = Identity();
+	elements[0][0] = vec.x;
+	elements[1][1] = vec.y;
+	elements[2][2] = vec.z;
+}
+
 float Matrix4f::determinant()
 {
 	float det = 0.0f;

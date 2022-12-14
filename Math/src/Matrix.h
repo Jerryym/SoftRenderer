@@ -56,6 +56,9 @@ namespace Math {
 		void rotationY(const double rAngle);
 		void rotationZ(const double rAngle);
 
+		//scale
+		void scale(const Vector3D& vec);
+
 	protected:
 		static float determinant(const Matrix4f& mat, int nSize = 4);
 		static float determinantofCofactorMat(const Matrix4f& mat, int iRow, int iCol, int nSize = 4);
