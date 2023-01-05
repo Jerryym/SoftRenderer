@@ -1,5 +1,6 @@
 #pragma once
 #include "Vector.h"
+#include <iostream>
 
 namespace Math {
 
@@ -37,6 +38,8 @@ namespace Math {
 		void operator *= (const float value);
 		void operator /= (const float value);
 
+		Vector4D operator*(const Vector4D& vec);
+
 		//Identity
 		static Matrix4f Identity();
 
@@ -58,6 +61,12 @@ namespace Math {
 
 		//scale
 		void scale(const Vector3D& vec);
+
+		//viewport
+		void setViewPort(int left, int top, int width, int height);
+
+		//
+		void printMat();
 
 	protected:
 		static float determinant(const Matrix4f& mat, int nSize = 4);
