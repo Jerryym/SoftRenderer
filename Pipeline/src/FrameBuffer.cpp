@@ -1,28 +1,36 @@
 #include "FrameBuffer.h"
 
-PipeLine::FrameBuffer::FrameBuffer()
+pipeline::FrameBuffer::FrameBuffer()
 	: m_nWidth(0), m_nHeight(0)
 {
 	m_colorBuffer.clear();
 }
 
-PipeLine::FrameBuffer::FrameBuffer(const int nWidth, const int nHeight)
+pipeline::FrameBuffer::FrameBuffer(const int nWidth, const int nHeight)
 	: m_nWidth(nWidth), m_nHeight(nHeight)
 {
 	m_colorBuffer.resize(m_nWidth * m_nHeight * 4, 255);
 }
 
-PipeLine::FrameBuffer::~FrameBuffer()
+void pipeline::FrameBuffer::operator=(const FrameBuffer& Ref)
+{
+	m_nWidth = Ref.m_nWidth;
+	m_nHeight = Ref.m_nHeight;
+	m_colorBuffer.clear();
+	m_colorBuffer = Ref.m_colorBuffer;
+}
+
+pipeline::FrameBuffer::~FrameBuffer()
 {
 
 }
 
-void PipeLine::FrameBuffer::Initialization(const Vector4D& color)
+void pipeline::FrameBuffer::clearColorBuffer(const Vector4D& color)
 {
-	char red = static_cast<unsigned char> (255 * color.x);
-	char green = static_cast<unsigned char> (255 * color.y);
-	char blue = static_cast<unsigned char> (255 * color.z);
-	char alpht = static_cast<unsigned char> (255 * color.w);
+	unsigned char red = static_cast<unsigned char> (255 * color.x);
+	unsigned char green = static_cast<unsigned char> (255 * color.y);
+	unsigned char blue = static_cast<unsigned char> (255 * color.z);
+	unsigned char alpht = static_cast<unsigned char> (255 * color.w);
 
 	for (int i = 0; i < m_nHeight; i++)
 	{
@@ -36,10 +44,10 @@ void PipeLine::FrameBuffer::Initialization(const Vector4D& color)
 	}
 }
 
-bool PipeLine::FrameBuffer::drawPixel(unsigned int x, unsigned int y, const Vector4D& color)
+bool pipeline::FrameBuffer::drawPixel(unsigned int x, unsigned int y, const Vector4D& color)
 {
 	if (x < 0 || x >= (unsigned int)m_nWidth)		return false;
-	if (y < 0 || y >= (unsigned int)m_nHeight)	return false;
+	if (y < 0 || y >= (unsigned int)m_nHeight)		return false;
 
 	char red = static_cast<unsigned char> (255 * color.x);
 	char green = static_cast<unsigned char> (255 * color.y);

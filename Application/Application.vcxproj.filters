@@ -23,16 +23,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="Dialog_Application.qrc">
+    <QtRcc Include="Application.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <QtUic Include="Dialog_Application.ui">
+    <QtUic Include="Application.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtMoc Include="Dialog_Application.h">
+    <QtMoc Include="Application.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClCompile Include="Dialog_Application.cpp">
+    <ClCompile Include="Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -40,5 +40,13 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RenderLoop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="RenderLoop.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>
