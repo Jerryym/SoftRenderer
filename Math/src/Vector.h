@@ -1,6 +1,7 @@
 #pragma once
 //v1.0 分别实现各个维度的向量
 //v2.0 使用模板类实现
+#include <iostream>
 
 namespace Math {
 	//二维
@@ -14,6 +15,7 @@ namespace Math {
 		Vector2D();
 		Vector2D(float x, float y);
 		Vector2D(const Vector2D& other);
+		void operator=(const Vector2D& other);
 		~Vector2D();
 
 		//length
@@ -26,11 +28,11 @@ namespace Math {
 		float dot(const Vector2D& vec) const;
 
 		//operator
-		Vector2D operator = (const Vector2D& other);
-		Vector2D operator + (const Vector2D& other);
-		Vector2D operator - (const Vector2D& other);
-		Vector2D operator * (const float rhs);
-		Vector2D operator / (const float rhs);
+		Vector2D operator = (const Vector2D& other) const;
+		Vector2D operator + (const Vector2D& other) const;
+		Vector2D operator - (const Vector2D& other) const;
+		Vector2D operator * (const float rhs) const;
+		Vector2D operator / (const float rhs) const;
 
 		bool operator==(const Vector2D& rhs);
 		bool operator!=(const Vector2D& rhs);
@@ -42,6 +44,9 @@ namespace Math {
 
 		Vector2D operator-() const;
 		Vector2D operator+() const;
+
+		//lerp
+		Vector2D lerp(const Vector2D& v2, const float factor) const;
 	};
 
 	//三维
@@ -54,6 +59,7 @@ namespace Math {
 		Vector3D();
 		Vector3D(float newX, float newY, float newZ);
 		Vector3D(const Vector3D& other);
+		void operator=(const Vector3D& other);
 		~Vector3D();
 
 		//length
@@ -67,11 +73,11 @@ namespace Math {
 		Vector3D product(const Vector3D& vec) const;
 
 		//operator
-		Vector3D operator = (const Vector3D& other);
-		Vector3D operator + (const Vector3D& other);
-		Vector3D operator - (const Vector3D& other);
-		Vector3D operator * (const float rhs);
-		Vector3D operator / (const float rhs);
+		Vector3D operator = (const Vector3D& other) const;
+		Vector3D operator + (const Vector3D& other) const;
+		Vector3D operator - (const Vector3D& other) const;
+		Vector3D operator * (const float rhs) const;
+		Vector3D operator / (const float rhs) const;
 
 		bool operator==(const Vector3D& rhs);
 		bool operator!=(const Vector3D& rhs);
@@ -83,6 +89,9 @@ namespace Math {
 
 		Vector3D operator-() const;
 		Vector3D operator+() const;
+
+		//lerp
+		Vector3D lerp(const Vector3D& v2, const float factor) const;
 	};
 
 	//四维
@@ -95,6 +104,7 @@ namespace Math {
 		Vector4D();
 		Vector4D(float newX, float newY, float newZ, float newW);
 		Vector4D(const Vector4D& other);
+		void operator=(const Vector4D& other);
 		~Vector4D();
 
 		//length
@@ -107,11 +117,11 @@ namespace Math {
 		float dot(const Vector4D& vec) const;
 
 		//operator
-		Vector4D operator = (const Vector4D& other);
-		Vector4D operator + (const Vector4D& other);
-		Vector4D operator - (const Vector4D& other);
-		Vector4D operator * (const float rhs);
-		Vector4D operator / (const float rhs);
+		Vector4D operator = (const Vector4D& other) const;
+		Vector4D operator + (const Vector4D& other) const;
+		Vector4D operator - (const Vector4D& other) const;
+		Vector4D operator * (const float rhs) const;
+		Vector4D operator / (const float rhs) const;
 
 		bool operator==(const Vector4D& rhs);
 		bool operator!=(const Vector4D& rhs);
@@ -123,6 +133,11 @@ namespace Math {
 
 		Vector4D operator-() const;
 		Vector4D operator+() const;
+
+		//lerp
+		Vector4D lerp(const Vector4D& v2, const float factor) const;
+
+		void printVec();
 	};
 }
 

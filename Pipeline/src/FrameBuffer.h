@@ -1,11 +1,10 @@
 #pragma once
-#pragma warning(disable:26451)
 
 #include <iostream>
 #include <vector>
 #include "Vector.h"
 
-namespace PipeLine {
+namespace pipeline {
 
 	using namespace Math;
 
@@ -15,6 +14,7 @@ namespace PipeLine {
 	public:
 		FrameBuffer();
 		FrameBuffer(const int nWidth, const int nHeight);
+		void operator=(const FrameBuffer& Ref);
 		~FrameBuffer();
 
 		int getWidth() const { return m_nWidth; }
@@ -22,7 +22,7 @@ namespace PipeLine {
 		unsigned char* getColorBuffer() { return m_colorBuffer.data(); }
 
 		//颜色缓冲初始化
-		void Initialization(const Vector4D& color);
+		void clearColorBuffer(const Vector4D& color);
 
 		//绘制像素
 		bool drawPixel(unsigned int x, unsigned int y, const Vector4D& color);

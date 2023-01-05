@@ -11,7 +11,6 @@ Matrix4f::Matrix4f()
 			elements[i][j] = 0.0f;
 		}
 	}
-
 }
 
 Matrix4f::Matrix4f(float e0, float e1, float e2, float e3, float e4, float e5, float e6, float e7, float e8, float e9, float e10, float e11, float e12, float e13, float e14, float e15)
@@ -221,6 +220,18 @@ void Matrix4f::operator/=(const float value)
 	}
 }
 
+Vector4D Math::Matrix4f::operator*(const Vector4D& vec)
+{
+	Vector4D res;
+
+	res.x = elements[0][0] * vec.x + elements[0][1] * vec.y + elements[0][2] * vec.z + elements[0][3] * vec.w;
+	res.y = elements[1][0] * vec.x + elements[1][1] * vec.y + elements[1][2] * vec.z + elements[1][3] * vec.w;
+	res.z = elements[2][0] * vec.x + elements[2][1] * vec.y + elements[2][2] * vec.z + elements[2][3] * vec.w;
+	res.w = elements[3][0] * vec.x + elements[3][1] * vec.y + elements[3][2] * vec.z + elements[3][3] * vec.w;
+
+	return res;
+}
+
 Matrix4f Matrix4f::Identity()
 {
 	Matrix4f result;
@@ -357,6 +368,27 @@ void Matrix4f::scale(const Vector3D& vec)
 	elements[0][0] = vec.x;
 	elements[1][1] = vec.y;
 	elements[2][2] = vec.z;
+}
+
+void Math::Matrix4f::setViewPort(int left, int top, int width, int height)
+{
+	*this = Identity();
+	elements[0][0] = static_cast<float>(width) / 2.0f;
+	elements[1][1] = -static_cast<float>(height) / 2.0f;
+	elements[0][3] = static_cast<float>(left) + static_cast<float>(width) / 2.0f;
+	elements[1][3] = static_cast<float>(top) + static_cast<float>(height) / 2.0f;
+}
+
+void Math::Matrix4f::printMat()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			std::cout << elements[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
 }
 
 float Matrix4f::determinant()

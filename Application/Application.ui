@@ -1,8 +1,8 @@
 <UI version="4.0" >
- <class>Dialog_ApplicationClass</class>
- <widget class="QMainWindow" name="Dialog_ApplicationClass" >
+ <class>ApplicationClass</class>
+ <widget class="QMainWindow" name="ApplicationClass" >
   <property name="objectName" >
-   <string notr="true">Dialog_ApplicationClass</string>
+   <string notr="true">ApplicationClass</string>
   </property>
   <property name="geometry" >
    <rect>
@@ -13,7 +13,7 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>Dialog_Application</string>
+   <string>Application</string>
   </property>  <widget class="QMenuBar" name="menuBar" />
   <widget class="QToolBar" name="mainToolBar" />
   <widget class="QWidget" name="centralWidget" />
@@ -22,7 +22,7 @@
  <layoutDefault spacing="6" margin="11" />
  <pixmapfunction></pixmapfunction>
  <resources>
-   <include location="Dialog_Application.qrc"/>
+   <include location="Application.qrc"/>
  </resources>
  <connections/>
 </UI>

@@ -28,6 +28,12 @@ Vector2D::Vector2D(const Vector2D& other)
 
 }
 
+void Math::Vector2D::operator=(const Vector2D& other)
+{
+	x = other.x;
+	y = other.y;
+}
+
 float Vector2D::getLength() const
 {
 	return sqrtf(x * x + y * y);
@@ -48,44 +54,34 @@ float Vector2D::dot(const Vector2D& vec) const
 	return (x * vec.x + y * vec.y);
 }
 
-Vector2D Vector2D::operator=(const Vector2D& other)
+Vector2D Vector2D::operator=(const Vector2D& other) const
 {
 	if (this == &other)		return *this;
 
-	this->x = other.x;
-	this->y = other.y;
-	return *this;
+	return Vector2D(other.x, other.y);
 }
 
-Vector2D Vector2D::operator+(const Vector2D& other)
+Vector2D Vector2D::operator+(const Vector2D& other) const
 {
-	this->x += other.x;
-	this->y += other.y;
-	return *this;
+	return Vector2D(x + other.x, y + other.y);
 }
 
-Vector2D Vector2D::operator-(const Vector2D& other)
+Vector2D Vector2D::operator-(const Vector2D& other) const
 {
-	this->x -= other.x;
-	this->y -= other.y;
-	return *this;
+	return Vector2D(x - other.x, y - other.y);
 }
 
-Vector2D Vector2D::operator*(const float rhs)
+Vector2D Vector2D::operator*(const float rhs) const
 {
-	this->x *= rhs;
-	this->y *= rhs;
-	return *this;
+	return Vector2D(x * rhs, y * rhs);
 }
 
-Vector2D Vector2D::operator/(const float rhs)
+Vector2D Vector2D::operator/(const float rhs) const
 {
 	if (rhs == 0)
 		return Vector2D(0.0f, 0.0f);
 
-	this->x /= rhs;
-	this->y /= rhs;
-	return *this;
+	return Vector2D(x / rhs, y / rhs);
 }
 
 bool Vector2D::operator==(const Vector2D& rhs)
@@ -145,6 +141,14 @@ Vector2D Vector2D::operator+() const
 	return *this;
 }
 
+Vector2D Vector2D::lerp(const Vector2D& v2, const float factor) const
+{
+	Vector2D result;
+	result = (*this) * (1.0f - factor) + v2 * factor;
+
+	return result;
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
@@ -165,6 +169,13 @@ Vector3D::Vector3D(const Vector3D& other)
 	: x(other.x), y(other.y), z(other.z)
 {
 
+}
+
+void Math::Vector3D::operator=(const Vector3D& other)
+{
+	x = other.x;
+	y = other.y;
+	z = other.z;
 }
 
 Vector3D::~Vector3D()
@@ -202,49 +213,34 @@ Vector3D Vector3D::product(const Vector3D& vec) const
 	return res;
 }
 
-Vector3D Vector3D::operator=(const Vector3D& other)
+Vector3D Vector3D::operator=(const Vector3D& other)	const
 {
 	if (this == &other)		return *this;
 
-	this->x = other.x;
-	this->y = other.y;
-	this->z = other.z;
-	return *this;
+	return Vector3D(other.x, other.y, other.z);
 }
 
-Vector3D Vector3D::operator+(const Vector3D& other)
+Vector3D Vector3D::operator+(const Vector3D& other)	const
 {
-	this->x += other.x;
-	this->y += other.y;
-	this->z += other.z;
-	return *this;
+	return Vector3D(x + other.x, y + other.y, z + other.z);
 }
 
-Vector3D Vector3D::operator-(const Vector3D& other)
+Vector3D Vector3D::operator-(const Vector3D& other)	const
 {
-	this->x -= other.x;
-	this->y -= other.y;
-	this->z -= other.z;
-	return *this;
+	return Vector3D(x - other.x, y - other.y, z - other.z);
 }
 
-Vector3D Vector3D::operator*(const float rhs)
+Vector3D Vector3D::operator*(const float rhs) const
 {
-	this->x *= rhs;
-	this->y *= rhs;
-	this->z *= rhs;
-	return *this;
+	return Vector3D(x * rhs, y * rhs, z * rhs);
 }
 
-Vector3D Vector3D::operator/(const float rhs)
+Vector3D Vector3D::operator/(const float rhs) const
 {
 	if (rhs == 0)
 		return Vector3D(0.0f, 0.0f, 0.0f);
 
-	this->x /= rhs;
-	this->y /= rhs;
-	this->z /= rhs;
-	return *this;
+	return Vector3D(x / rhs, y / rhs, z / rhs);
 }
 
 bool Vector3D::operator==(const Vector3D& rhs)
@@ -308,6 +304,13 @@ Vector3D Vector3D::operator+() const
 {
 	return *this;
 }
+Vector3D Math::Vector3D::lerp(const Vector3D& v2, const float factor) const
+{
+	Vector3D result;
+	result = (*this) * (1.0f - factor) + v2 * factor;
+
+	return result;
+}
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
@@ -328,6 +331,14 @@ Vector4D::Vector4D(const Vector4D& other)
 	: x(other.x), y(other.y), z(other.z), w(other.w)
 {
 
+}
+
+void Math::Vector4D::operator=(const Vector4D& other)
+{
+	x = other.x;
+	y = other.y;
+	z = other.z;
+	w = other.w;
 }
 
 Vector4D::~Vector4D()
@@ -355,58 +366,34 @@ float Vector4D::dot(const Vector4D& vec) const
 	return (x * vec.x + y * vec.y + z * vec.z + w * vec.w);
 }
 
-Vector4D Vector4D::operator=(const Vector4D& other)
+Vector4D Vector4D::operator=(const Vector4D& other) const
 {
 	if (this == &other)		return *this;
 
-	this->x = other.x;
-	this->y = other.y;
-	this->z = other.z;
-	this->w = other.w;
-	return *this;
+	return Vector4D(other.x, other.y, other.z, other.w);
 }
 
-Vector4D Vector4D::operator+(const Vector4D& other)
+Vector4D Vector4D::operator+(const Vector4D& other) const
 {
-	this->x += other.x;
-	this->y += other.y;
-	this->z += other.z;
-	this->w += other.w;
-
-	return *this;
+	return Vector4D(x + other.x, y + other.y, z + other.z, w + other.w);
 }
 
-Vector4D Vector4D::operator-(const Vector4D& other)
+Vector4D Vector4D::operator-(const Vector4D& other) const
 {
-	this->x -= other.x;
-	this->y -= other.y;
-	this->z -= other.z;
-	this->w -= other.w;
-
-	return *this;
+	return Vector4D(x - other.x, y - other.y, z - other.z, w - other.w);
 }
 
-Vector4D Vector4D::operator*(const float rhs)
+Vector4D Vector4D::operator*(const float rhs) const
 {
-	this->x *= rhs;
-	this->y *= rhs;
-	this->z *= rhs;
-	this->w *= rhs;
-
-	return *this;
+	return Vector4D(x * rhs, y * rhs, z * rhs, w * rhs);
 }
 
-Vector4D Vector4D::operator/(const float rhs)
+Vector4D Vector4D::operator/(const float rhs) const
 {
 	if (rhs == 0)
 		return Vector4D(0.0f, 0.0f, 0.0f, 0.0f);
-
-	this->x /= rhs;
-	this->y /= rhs;
-	this->z /= rhs;
-	this->w /= rhs;
-
-	return *this;
+	
+	return Vector4D(x / rhs, y / rhs, z / rhs, w / rhs);
 }
 
 bool Vector4D::operator==(const Vector4D& rhs)
@@ -472,5 +459,18 @@ Vector4D Vector4D::operator-() const
 Vector4D Vector4D::operator+() const
 {
 	return *this;
+}
+
+Vector4D Vector4D::lerp(const Vector4D& v2, const float factor) const
+{
+	Vector4D result;
+	result = (*this) * (1.0f - factor) + v2 * factor;
+
+	return result;
+}
+
+void Math::Vector4D::printVec()
+{
+	std::cout << "Vec4 = (" << x <<" " << y << " " << z << " " << w << ")" << std::endl;
 }
 //////////////////////////////////////////////////////////////////////////
