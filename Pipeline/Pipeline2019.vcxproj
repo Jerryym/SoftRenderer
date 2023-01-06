@@ -36,9 +36,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{0b9a186d-6798-4341-a2a5-021c7db37e5c}</ProjectGuid>
+    <ProjectGuid>{AE8F323E-44E4-44B0-BFDA-022CB7F60087}</ProjectGuid>
     <RootNamespace>Pipeline</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Pipeline</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -94,11 +95,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)lib\$(Platform)\</OutDir>
-    <TargetName>$(ProjectName)_D</TargetName>
+    <TargetName>$(ProjectName)_2019_D</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)lib\$(Platform)\</OutDir>
+    <TargetName>$(ProjectName)_2019</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
