@@ -4,10 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application2022", "Application\Application2022.vcxproj", "{57F807D9-4FDE-416A-BA45-B42E92685E0F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0B9A186D-6798-4341-A2A5-021C7DB37E5C} = {0B9A186D-6798-4341-A2A5-021C7DB37E5C}
+		{4479DBBD-2307-44AA-8623-636601B29324} = {4479DBBD-2307-44AA-8623-636601B29324}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math2022", "Math\Math2022.vcxproj", "{4479DBBD-2307-44AA-8623-636601B29324}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pipeline2022", "Pipeline\Pipeline2022.vcxproj", "{0B9A186D-6798-4341-A2A5-021C7DB37E5C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4479DBBD-2307-44AA-8623-636601B29324} = {4479DBBD-2307-44AA-8623-636601B29324}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

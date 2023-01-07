@@ -3,11 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33130.400
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application", "Application\Application2019.vcxproj", "{361ACB84-D06C-4DFE-9B72-48CE832908A2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application2019", "Application\Application2019.vcxproj", "{361ACB84-D06C-4DFE-9B72-48CE832908A2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AE8F323E-44E4-44B0-BFDA-022CB7F60087} = {AE8F323E-44E4-44B0-BFDA-022CB7F60087}
+		{A173769D-AEDE-473C-8170-F3B58AABF748} = {A173769D-AEDE-473C-8170-F3B58AABF748}
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math", "Math\Math2019.vcxproj", "{A173769D-AEDE-473C-8170-F3B58AABF748}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math2019", "Math\Math2019.vcxproj", "{A173769D-AEDE-473C-8170-F3B58AABF748}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pipeline", "Pipeline\Pipeline2019.vcxproj", "{AE8F323E-44E4-44B0-BFDA-022CB7F60087}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pipeline2019", "Pipeline\Pipeline2019.vcxproj", "{AE8F323E-44E4-44B0-BFDA-022CB7F60087}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A173769D-AEDE-473C-8170-F3B58AABF748} = {A173769D-AEDE-473C-8170-F3B58AABF748}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
